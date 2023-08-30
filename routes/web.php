@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('about', function () {
     return view('about');
 });
+
+Route::get('hello', function () {
+    $dataArray = [
+        'message' => 'Hello World!'
+    ];
+    return $dataArray;
+    // return response()->json($dataArray); digunakan jika terdapat statuscode misal ->json($dataArray,200)
+});

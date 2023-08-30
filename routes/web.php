@@ -28,3 +28,12 @@ Route::get('hello', function () {
     return $dataArray;
     // return response()->json($dataArray); digunakan jika terdapat statuscode misal ->json($dataArray,200)
 });
+
+Route::get('debug', function () {
+    $dataArray = [
+       'message' => 'Hello World!'
+    ];
+
+    // dd($dataArray);
+    ddd(request());
+});

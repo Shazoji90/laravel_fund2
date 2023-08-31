@@ -61,3 +61,8 @@ Route::post('tasks', function () use ($taskList) {
     $taskList[request()->label] = request()->task;
     return $taskList;
 });
+
+Route::patch('tasks/{key}', function ($key) use ($taskList) {
+    $taskList[$key] = request()->task;
+    return $taskList;
+});

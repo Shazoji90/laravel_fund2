@@ -19,4 +19,10 @@ class TaskController extends Controller
         }
         return $this->taskList;
     }
+
+    public function show($param)
+    {
+        // return $param;
+        return $this->taskList[$param];
+    }
 }

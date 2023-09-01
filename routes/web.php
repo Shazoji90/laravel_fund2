@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class,'index']);
 Route::get('tasks', [TaskController::class,'index']);
+Route::get('tasks/{param}', [TaskController::class,'show']);

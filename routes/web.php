@@ -19,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class,'index']);
 Route::get('tasks', [TaskController::class,'index']);
 Route::get('tasks/{param}', [TaskController::class,'show']);
+Route::post('tasks', [TaskController::class,'store']);
+Route::patch('tasks/{key}', [TaskController::class,'update']);
+Route::delete('tasks/{key}', [TaskController::class,'destroy']);

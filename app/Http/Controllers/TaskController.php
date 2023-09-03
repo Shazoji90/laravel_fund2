@@ -13,20 +13,18 @@ class TaskController extends Controller
         'third' => 'Work',
     ];
 
-    // public function index()
-    // {
-    //     if(request()->search) {
-    //         return $this->taskList[request()->search];
-    //     }
-    //     return $this->taskList;
-    // }
-
     public function index(Request $request)
     {
         if($request->search) {
-            return $this->taskList[$request->search];
+            $tasks = DB::table('tasks')
+            ->where('task', 'LIKE', "%$request->search%")
+            ->get();
+            // agar tidak mengeksekusi syntax selanjutnya maka harus ditambahkan return
+            return $tasks;
         }
-        return $this->taskList;
+
+        $tasks = DB::table('tasks')->get();
+        return $tasks;
     }
 
     public function store(Request $request)
@@ -39,10 +37,10 @@ class TaskController extends Controller
         return 'success';
     }
 
-    public function show($param)
+    public function show($id)
     {
-        // return $param;
-        return $this->taskList[$param];
+        $tasks = DB::table('tasks')->where('id', $id)->first();
+        ddd($tasks);
     }
 
     public function update(Request $request, $key)

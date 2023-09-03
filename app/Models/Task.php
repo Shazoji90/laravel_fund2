@@ -10,6 +10,6 @@ class Task extends Model
     use HasFactory;
 
     // protected $table = 'tasks';
-    // protected $fillable = [];
+    protected $fillable = ['user','task'];
     // protected $guarded = []; -> kebalikan dari filllable, menentukan field apa saja yg ttidak boleh diisi sembarangan
 }

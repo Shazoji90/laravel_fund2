@@ -5,8 +5,16 @@
                 <li><a href="{{ url('/') }}" class="nav-link px-2 text-white">Home</a></li>
             </ul>
             <div class="text-end">
-                <button type="button" class="btn btn-outline-light me-2">Login</button>
-                <a href="{{ route('register') }}" class="btn btn-warning">Sign-up</a>
+                @guest
+                    <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Login</a>
+                    <a href="{{ route('register') }}" class="btn btn-warning">Sign-up</a>
+                    @else
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <a href="">{{ Auth::user()->name }}</a>
+                        <button type="submit" class="btn btn-outline-light me-2">Logout</button>
+                    </form>
+                @endguest
             </div>
         </div>
     </div>

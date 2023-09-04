@@ -37,7 +37,7 @@ class TaskController extends Controller
             'user' => $request->user
         ]);
 
-        return 'success';
+        return redirect('/tasks');
     }
 
     public function show($id)

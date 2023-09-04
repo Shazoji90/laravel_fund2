@@ -26,4 +26,12 @@ class TaskRequest extends FormRequest
             'user' =>  'required|alpha_num' ,
         ];
     }
+
+    public function messages()
+    {
+        return[
+            'required' => 'isian :attribute harus diisi',
+            'user.required' => 'nama pengguna harus diisi'
+        ];
+    }
 }

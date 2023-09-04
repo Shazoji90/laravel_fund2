@@ -13,12 +13,13 @@ class TaskController extends Controller
     {
         if($request->search) {
             $tasks = Task::where('task', 'LIKE', "%$request->search%")
-            ->get();
-            // agar tidak mengeksekusi syntax selanjutnya maka harus ditambahkan return
-            return $tasks;
+            ->paginate(3);
+            return view('task.index', [
+                'data' => $tasks
+            ]);
         }
 
-        $tasks = Task::all();
+        $tasks = Task::paginate(3);
         return view('task.index', [
             'data' => $tasks
         ]);

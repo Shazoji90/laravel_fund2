@@ -23,7 +23,7 @@ class TaskRequest extends FormRequest
     {
         return [
             'task' => [ 'required' ],
-            'user' => [ 'required' ],
+            'user' =>  'required|alpha_num' ,
         ];
     }
 }

@@ -11,7 +11,7 @@
                     @else
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <a href="">{{ Auth::user()->name }}</a>
+                        <a href="#" class="btn btn-outline-light me-2">{{ Auth::user()->name }}</a>
                         <button type="submit" class="btn btn-outline-light me-2">Logout</button>
                     </form>
                 @endguest
